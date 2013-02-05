@@ -28,7 +28,8 @@ def hello_world():
 
 @app.route('/api/addjob',methods=['POST'])
 def add_job():
-    return render_template('submit.html')
+    rq.enque(count_words_at_url, request.form['url'])
+    return 'job added'
 
 @app.route('/api/check_job',methods=['GET'])
 def add_job():
